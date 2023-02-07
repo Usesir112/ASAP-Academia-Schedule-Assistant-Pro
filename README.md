@@ -25,6 +25,8 @@ npm run dev
 ### Navigation
 - See design: [Figma](https://www.figma.com/file/MTrPJZLj6LSwVMcNACuoEz/ASAP-Project?node-id=172%3A25&t=olayPZ0s8AP7qEc4-1), [GitHub](https://github.com/Usesir112/ASAP-Academia-Schedule-Assistant-Pro/tree/design)
 
+### Problem Found
+✅ [Solved] Tailwind CSS Installation - [Guildline of install Tailwind CSS for Nuxt](https://tailwindcss.com/docs/guides/nuxtjs#3)
 
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
