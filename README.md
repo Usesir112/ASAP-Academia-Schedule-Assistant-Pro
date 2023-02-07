@@ -3,7 +3,7 @@ Streamline scheduling with the ASAP Developed for the Registration Department, t
 
 ![Landing Page](https://github.com/Usesir112/ASAP-Academia-Schedule-Assistant-Pro/blob/design/%231%20Login%20Page.png)
 
-## Installation
+## Get Started
 
 1. Clone the repository:
 ```bash
