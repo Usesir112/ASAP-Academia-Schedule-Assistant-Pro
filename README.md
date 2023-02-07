@@ -23,7 +23,7 @@ npm run dev
 ```
 
 ### Navigation
-- See design: [Figma](https://www.figma.com/file/MTrPJZLj6LSwVMcNACuoEz/ASAP-Project?node-id=172%3A25&t=olayPZ0s8AP7qEc4-1), [GitHub]()
+- See design: [Figma](https://www.figma.com/file/MTrPJZLj6LSwVMcNACuoEz/ASAP-Project?node-id=172%3A25&t=olayPZ0s8AP7qEc4-1), [GitHub](https://github.com/Usesir112/ASAP-Academia-Schedule-Assistant-Pro/tree/design)
 
 
 ## Technology stack
