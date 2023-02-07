@@ -31,7 +31,7 @@ npm run dev
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
 - Back-end: [Express.js](https://expressjs.com/)
-- Application Framework: [Nuxt.js](https://nuxtjs.org/)
+- Application Framework: [Nuxt 3](https://nuxt.com/)
 - Programming Language: [TypeScript](https://www.typescriptlang.org/)
 
 ## Contact
