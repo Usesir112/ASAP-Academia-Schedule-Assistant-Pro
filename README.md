@@ -29,6 +29,8 @@ npm run dev
 - ✅ [Solved] Tailwind CSS Installation - [Guildline of install Tailwind CSS for Nuxt](https://tailwindcss.com/docs/guides/nuxtjs#3)
 - ✅ [Solved] Static Class name in Tailwind CSS - [Content Configuration](https://tailwindcss.com/docs/content-configuration)
   - Keep in mind do not use dynamic class name and always use complete classname
+- ✅ [Solved] Changing Icon on the Browser tab
+  - JUST PUT THE "Public" directory in the same with your srcDir in nuxt.config
 
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
