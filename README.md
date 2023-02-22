@@ -32,6 +32,11 @@ npm run dev
 - ✅ [Solved] Changing Icon on the Browser tab
   - JUST PUT THE "Public" directory in the same with your srcDir in nuxt.config
 - ✅ [Solved] SASS fail start - [Node-gyp](https://stackoverflow.com/questions/54428608/docker-node-alpine-image-build-fails-on-node-gyp)
+- ✅ [Solved] Build Project in docker not connection
+  - In `package.json` replace `"dev": "nuxt dev"`to `"dev": "HOST=0.0.0.0 PORT=3000 nuxt dev"`
+- ✅ [Solved] pgAdmin Connet to postgres
+  - The Default user name of prostgre (POSTGRES_USER) is is `postgres` [Documentation](https://hub.docker.com/_/postgres)
+  - The mac hostname for connnetion is `host.docker.internal` [Full Detail](https://github.com/khezen/compose-postgres/issues/6)
 
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
