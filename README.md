@@ -31,6 +31,7 @@ npm run dev
   - Keep in mind do not use dynamic class name and always use complete classname
 - ✅ [Solved] Changing Icon on the Browser tab
   - JUST PUT THE "Public" directory in the same with your srcDir in nuxt.config
+- ✅ [Solved] SASS fail start - [Node-gyp](https://stackoverflow.com/questions/54428608/docker-node-alpine-image-build-fails-on-node-gyp)
 
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
