@@ -37,6 +37,9 @@ npm run dev
 - ✅ [Solved] pgAdmin Connet to postgres
   - The Default user name of prostgre (POSTGRES_USER) is is `postgres` [Documentation](https://hub.docker.com/_/postgres)
   - The mac hostname for connnetion is `host.docker.internal` [Full Detail](https://github.com/khezen/compose-postgres/issues/6)
+- ✅ [Solved] Postgres Installing in the MacOS via HomeBrew
+  - The role `postgres` did not ctreated by defalut
+  - Create the `postgres` user [Here](https://phoenixnap.com/kb/postgres-create-user)
 
 ## Technology stack
 - Front-end: [Sass](https://sass-lang.com/), [Tailwind](https://tailwindcss.com/)
