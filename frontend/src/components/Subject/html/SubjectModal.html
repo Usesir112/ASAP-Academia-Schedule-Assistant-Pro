@@ -1,0 +1,103 @@
+<ModalTemplete :name="name" id="data">
+    <div class="items-center px-4 border border-t border-gray-50">
+        <!-- Colum One -->
+        <div class="flex m-5">
+            <!-- Subject code -->
+            <InputTemplete @input-change="valueChangeHandle" :data="code" :disabledStatus="disabledStatus" id="code"
+                class="w-[15rem]">รหัสวิชา</InputTemplete>
+            <!-- Subject code -->
+
+            <!-- Subject name -->
+            <InputTemplete @input-change="valueChangeHandle" :data="name" :disabledStatus="disabledStatus" id="name"
+                class="w-full">ชื่อวิชา</InputTemplete>
+            <!-- Subject name -->
+
+            <!-- Subject Study Year -->
+            <InputTemplete @input-change="valueChangeHandle" :data="stuYear" :disabledStatus="disabledStatus"
+                id="stuYear" class="w-auto">
+                ชั้นปี</InputTemplete>
+            <!-- Subject Study Year -->
+        </div>
+        <!-- Colum One -->
+
+        <!-- Column Two -->
+        <div class="flex m-5">
+            <!-- Subject Curriculum -->
+            <div class="relative mr-3 w-[25%]">
+                <select :disabled="disabledStatus" id="selectCur" name="selectCur" v-model="curID"
+                    class="input text-primary peer">
+                    <option v-for="item in curriculums" :key="item.id" :value="item.id">
+                        {{ item.code }} / {{ item.calYear }}
+                    </option>
+                </select>
+                <label for="selectCur" class="input-label text-md peer-focus:text-primary">
+                    หลักสูตร / หลักสูตรปี
+                </label>
+            </div>
+            <!-- Subject Curriculum -->
+
+            <!-- Subject Unit -->
+            <div class="relative mr-3 w-[25%]">
+                <select :disabled="disabledStatus" id="unit" name="unit" v-model="unit" class="input text-primary peer">
+                    <option v-for="unitItem in units" :key="unitItem" :value="unitItem">
+                        {{ unitItem }}
+                    </option>
+                </select>
+                <label for="unit" class="input-label text-md peer-focus:text-primary">
+                    หน่วยกิต
+                </label>
+            </div>
+            <!-- Subject Unit -->
+
+            <!-- Subject Cetagory -->
+            <div class="relative mr-3 w-[25%]">
+                <select :disabled="disabledStatus" id="cetagory" name="cetagory" v-model="category"
+                    class="input text-primary peer">
+                    <option v-for="catItem in categories" :key="catItem" :value="catItem">
+                        {{ catItem }}
+                    </option>
+                </select>
+                <label for="cetagory" class="input-label text-md peer-focus:text-primary">
+                    ประเภทวิชา
+                </label>
+            </div>
+            <!-- Subject Cetagory -->
+
+            <!-- Subject Branch -->
+            <div class="relative mr-3 w-[25%]">
+                <select :disabled="disabledStatus" id="branch" name="branch" v-model="branch"
+                    class="input text-primary peer">
+                    <option v-for="branchItem in branches" :key="branchItem" :value="branchItem">
+                        {{ branchItem }}
+                    </option>
+                </select>
+                <label for="branch" class="input-label text-md peer-focus:text-primary">
+                    สาขา
+                </label>
+            </div>
+            <!-- Subject Branch -->
+        </div>
+        <!-- Column Two -->
+
+        <!-- Subject Description -->
+        <div class="border-t border-gray-100">
+            <div class="relative m-5">
+                <textarea id="description" placeholder=" "
+                    class="w-full input peer text-primary disabled:text-primary-500 border-none shadow" v-model="descr"
+                    :disabled="disabledStatus" />
+                <label class="input-label text-md peer-focus:text-primary" for="description">รายละเอียด</label>
+            </div>
+        </div>
+        <!-- Subject Description -->
+
+        <!-- Button Group -->
+        <ModalButtonGroup :disabledStatus="disabledStatus" topic="วิชา" @change="toggleDisabledStatus"
+            @save="saveHandler" @delete="openDangerModal" />
+        <!-- Button Group -->
+    </div>
+
+    <!-- Delete Modal -->
+    <DangerModal v-show="deleteModal" @cancel="closeDangerModal" @confirm="confirmDelHandle">หลักสูตร {{ name }}
+    </DangerModal>
+    <!-- Delete Modal -->
+</ModalTemplete>

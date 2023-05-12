@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model curriculum {
+  id          Int        @id @default(autoincrement())
+  code        String     // Curriculum code (e.g. IT65)
+  name        String     // Curriculum name (e.g. Information Technology 2565)
+  calYear     Int        // Calendar year (e.g. 2565)
+  descr       String     // Curriculum description
+
+  subjects    subject[]
+}
+
+model subject {
+  id          Int        @id @default(autoincrement())
+  code        String     // Subject code (e.g. 06016408)
+  name        String     // Subject name (e.g. OBJECT-ORIENTED PROGRAMMING)
+  curID       Int        // Curriculum ID (e.g. 1 for IT65)
+  unit        String     // Subject unit (e.g. 3(2-2-5))
+  category    String     // Subject category (e.g. วิชาเฉพาะ)
+  branch      String     // Subject branch (e.g. IT)
+  stuYear     Int        // Student year (e.g. 1)
+  descr       String     // Subject description
+
+  curriculum  curriculum @relation(fields: [curID], references: [id])
+  schedules   schedule[]
+}
+
+model lecturer {
+  id       Int           @id @default(autoincrement())
+  name     String        // Lecturer name (e.g. ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์)
+  email    String        // Lecturer email (e.g. taravichet@it.kmitl.ac.th)
+
+  schedules schedule[]
+}
+
+model semester {
+  id     Int             @id @default(autoincrement())
+  name   String          // Semester name (e.g. 2565/1)
+  year   Int             // Semester year (e.g. 2565)
+
+  schedules schedule[]
+}
+
+model room {
+  id     Int             @id @default(autoincrement())
+  name   String          // Room name (e.g. M04)
+  amount Int             // Room amount (e.g. 50)
+  type   String          // Room type (e.g. Lecturer)
+
+  schedules schedule[]
+}
+
+model schedule {
+  id          Int        @id @default(autoincrement())
+  subjectId   Int        // Subject ID (e.g. 1 to indicate which subject) REQUIRE
+  lecturerId  Int        // Lecturer ID (e.g. 1 to indicate which lecturer) REQUIRE
+  semesterId  Int        // Semester ID (e.g. 1 to indicate which semester)
+  roomId      Int        // Room ID (e.g. 1 to indicate which room)
+  dayOfWeek   String     // Day of week (e.g. จันทร์)
+  startTime   String     // Start time (e.g. 09:00)
+  endTime     String     // End time (e.g. 12:00)
+  section     Int        // Section (e.g. 1) REQUIRE
+  type        String     // Class of schedule (e.g. ทฤษฏี)
+
+  subject     subject    @relation(fields: [subjectId], references: [id])
+  lecturer    lecturer   @relation(fields: [lecturerId], references: [id])
+  semester    semester   @relation(fields: [semesterId], references: [id])
+  room        room       @relation(fields: [roomId], references: [id])
+}

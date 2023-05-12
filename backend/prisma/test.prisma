@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    email String @unique
+    firstName String
+    lastName String
+    role UserRole
+}
+
+model Lecturer {
+    id Int @id @default(autoincrement())
+    email String @unique
+    firstName String
+    lastName String
+}
+
+model Schedule {
+    id Int @id @default(autoincrement())
+    startDateTime DateTime
+    endDateTime DateTime
+    section Int
+    type ScheduleType
+}
+
+model Curriculum {
+    id Int @id @default(autoincrement())
+    code String
+    name String
+    year Int
+    description String
+
+    subjects Subject[]
+}
+
+model Subject {
+    id Int @id @default(autoincrement())
+    code String
+    name String
+    unit String
+    category String
+    branch SubjectBranch
+
+    curriculumId Int
+    curriculum  Curriculum @relation(fields: [curriculumId], references: [id])
+
+}
+
+enum SubjectBranch {
+    IT
+    DSBA
+    BIT
+    AI
+}
+// get '/branch
+// return [SubjectBranch.IT, SubjectBranch.DSBA]
+
+enum ScheduleType {
+    LAB
+    LECTURE
+}
+enum UserRole {
+    ADMIN
+    STAFF
+    VIEWER
+}
